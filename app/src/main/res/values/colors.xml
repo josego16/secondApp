@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="yellow1">#FFFF00</color>
+    <color name="yellow2">#FFFF66</color>
+    <color name="yellow3">#FFFF99</color>
+    <color name="yellow4">#FFFFCC</color>
+    <color name="yellow5">#FFCC99</color>
+    <color name="yellow6">#FFCC66</color>
+    <color name="yellow7">#FFCC33</color>
+    <color name="yellow8">#FFCC00</color>
+    <color name="yellow9">#FF9900</color>
+    <color name="yellow10">#FF6600</color>
+    <color name="yellow11">#FF3300</color>
+    <color name="yellow12">#FF0000</color>
 </resources>
