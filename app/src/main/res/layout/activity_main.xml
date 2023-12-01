@@ -99,6 +99,7 @@
         android:layout_marginTop="20dp"
         app:cardBackgroundColor="@color/background_component"
         app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/id_viewMale">
@@ -170,6 +171,7 @@
         android:layout_marginEnd="16dp"
         app:cardBackgroundColor="@color/background_component"
         app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/id_viewBtn2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/id_viewBtn3">
@@ -235,6 +237,7 @@
         android:layout_marginTop="20dp"
         app:cardBackgroundColor="@color/background_component"
         app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/id_viewBtn1"
         app:layout_constraintTop_toBottomOf="@+id/id_viewBtn3">
@@ -291,37 +294,5 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/id_viewImg"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/id_viewBtn2">
-
-        <LinearLayout
-            android:id="@+id/id_layout_img"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@color/black"
-                android:layout_gravity="center" />
-        </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

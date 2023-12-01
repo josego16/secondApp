@@ -7,4 +7,5 @@
     <string name="texto_botones_1">Llamar y Alarma</string>
     <string name="texto_botones_2">E-mail y Website</string>
     <string name="texto_botones_3">Dados y Chistes</string>
+    <string name="texto_recibir_LLamada">Pulsa para realizar una llamada</string>
 </resources>
