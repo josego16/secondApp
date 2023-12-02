@@ -4,6 +4,200 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_app"
     tools:context=".BotonesActivity">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/id_cardView_text_nombre"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/background_component"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/id_layout_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="13dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/id_text_nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="@string/texto_ppal"
+                android:textColor="@color/background_button"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/id_edit_nombre"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="16dp"
+                android:autofillHints="username"
+                android:gravity="center"
+                android:hint="@string/text_nombre"
+                android:imeOptions="actionSend"
+                android:inputType="text"
+                android:lines="1"
+                android:textColor="@color/black"
+                android:textColorHint="#212121"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/id_layout_infoTiradas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@color/teal_200"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_cardView_text_nombre"
+        app:layout_constraintVertical_bias="0.05">
+
+        <Spinner
+            android:id="@+id/id_spinner_tiempo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/white"
+            android:minWidth="150dp"
+            android:minHeight="50dp" />
+
+        <ProgressBar
+            android:id="@+id/id_progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible" />
+
+        <RadioGroup
+            android:id="@+id/id_group_tiradas"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/id_radio_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/texto_radio_1"
+                android:textColor="@color/title_text"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/id_radio_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/texto_radio_2"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/id_radio_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/texto_radio_3"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/id_radio_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/texto_radio_4"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/id_radio_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/texto_radio_5"
+                android:textSize="16sp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/id_layout_siguiente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/id_layout_calendar"
+        app:layout_constraintTop_toBottomOf="@id/id_layout_infoTiradas"
+        app:layout_constraintVertical_bias="0.05">
+
+        <Button
+            android:id="@+id/id_boton_siguiente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/white"
+            android:drawableEnd="@drawable/icon_send"
+            android:text="@string/texto_btn_enviar"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/id_layout_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/purple_200"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_layout_infoTiradas"
+        app:layout_constraintVertical_bias="0.2">
+
+        <TextView
+            android:id="@+id/id_text_calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="16dp"
+            android:text="@string/texto_calendar"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/id_edit_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:autofillHints="date"
+            android:clickable="false"
+            android:focusable="false"
+            android:hint="@string/texto_edit_calendar"
+            android:inputType="date"
+            android:minHeight="48dp"
+            android:textColorHint="#311B92" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

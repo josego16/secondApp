@@ -8,4 +8,14 @@
     <string name="texto_botones_2">E-mail y Website</string>
     <string name="texto_botones_3">Dados y Chistes</string>
     <string name="texto_recibir_LLamada">Pulsa para realizar una llamada</string>
+    <string name="texto_ppal">Escribe tu nombre.</string>
+    <string name="text_nombre">Nombre</string>
+    <string name="texto_radio_1">1 Tirada</string>
+    <string name="texto_radio_2">2 Tiradas</string>
+    <string name="texto_radio_3">3 Tiradas</string>
+    <string name="texto_radio_4">4 Tiradas</string>
+    <string name="texto_radio_5">5 Tiradas</string>
+    <string name="texto_btn_enviar">Enviar</string>
+    <string name="texto_calendar">Fecha actual</string>
+    <string name="texto_edit_calendar">Que dia es hoy</string>
 </resources>

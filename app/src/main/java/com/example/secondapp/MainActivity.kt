@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.AlarmClock
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.secondapp.databinding.ActivityMainBinding
 
@@ -15,6 +16,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(mainBinding.root)
         /*setContentView(R.layout.activity_main)*/
         initEvent()
+
+        val dateSelected = intent.getStringExtra("DATE_SELECTED")
+        Toast.makeText(this, dateSelected, Toast.LENGTH_LONG).show()
     }
 
     private fun initEvent() {
@@ -48,14 +52,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun crearCorreo() {
-        val correo = Intent(Intent.ACTION_SENDTO).apply {
+        val intentCorreo = Intent(Intent.ACTION_SENDTO).apply {
             data = Uri.parse("mailto:")
             putExtra(Intent.EXTRA_EMAIL, "josemagomez53@gmail.com")
             putExtra(Intent.EXTRA_SUBJECT, "")
         }
-        if (correo.resolveActivity(packageManager) != null) {
-            startActivity(correo)
-        }
+        startActivity(intentCorreo)
     }
 
     private fun createAlarm(message: String, hour: Int, minutes: Int) {
