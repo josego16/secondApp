@@ -11,23 +11,24 @@
         android:id="@+id/id_btn_cubo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
+        android:contentDescription="@string/description_cubo"
         android:src="@drawable/vaso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/id_layout_dados"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/id_text_resultado"
+        app:layout_constraintBottom_toTopOf="@id/id_layout_resultado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/id_btn_cubo"
-        app:layout_constraintVertical_bias="0.3">
+        app:layout_constraintTop_toBottomOf="@id/id_btn_cubo">
 
         <ImageView
             android:id="@+id/id_img_cara_1"
@@ -35,6 +36,7 @@
             android:layout_height="100dp"
             android:layout_margin="16dp"
             android:layout_weight="1"
+            android:contentDescription="@string/description_dados"
             android:src="@drawable/dice_1" />
 
         <ImageView
@@ -43,6 +45,7 @@
             android:layout_height="100dp"
             android:layout_margin="16dp"
             android:layout_weight="1"
+            android:contentDescription="@string/description_dados"
             android:src="@drawable/dice_1" />
 
         <ImageView
@@ -51,22 +54,40 @@
             android:layout_height="100dp"
             android:layout_margin="16dp"
             android:layout_weight="1"
+            android:contentDescription="@string/description_dados"
             android:src="@drawable/dice_1" />
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/id_text_resultado"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/id_layout_resultado"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:gravity="center"
-        android:text="@string/texto_resultado"
-        android:textColor="@color/white"
-        android:textSize="80sp"
-        android:textStyle="bold"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintTop_toBottomOf="@id/id_layout_dados">
+
+        <TextView
+            android:id="@+id/id_text_resultado"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:text="@string/texto_resultado"
+            android:textColor="@color/white"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/id_img_resultado"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/description_resultado" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

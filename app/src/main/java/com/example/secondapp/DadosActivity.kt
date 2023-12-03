@@ -71,13 +71,41 @@ class DadosActivity : AppCompatActivity() {
             3 -> R.drawable.dice_3
             4 -> R.drawable.dice_4
             5 -> R.drawable.dice_5
-            else -> R.drawable.dice_6
+            6 -> R.drawable.dice_6
+            else -> {
+                if (suma > 9 && suma % 10 == 1) {
+                    R.id.id_text_resultado
+                } else {
+                    return
+                }
+            }
         }
         imageView.setImageResource(drawableResource)
     }
 
     private fun resultadoFinal() {
+        val imgBaraja = when (suma) {
+            3 -> R.drawable.card_3
+            4 -> R.drawable.card_4
+            5 -> R.drawable.card_5
+            6 -> R.drawable.card_6
+            7 -> R.drawable.card_7
+            8 -> R.drawable.card_8
+            9 -> R.drawable.card_9
+            10 -> R.drawable.card_10
+            11 -> R.drawable.card_11
+            12 -> R.drawable.card_12
+            13 -> R.drawable.card_13
+            else -> {
+                if (suma > 9 && suma % 10 == 1) {
+                    R.drawable.card_1
+                } else {
+                    return
+                }
+            }
+        }
         bindingDados.idTextResultado.text = suma.toString()
+        bindingDados.idImgResultado.setImageResource(imgBaraja)
         println(suma)
     }
 }
