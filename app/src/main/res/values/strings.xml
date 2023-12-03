@@ -18,4 +18,5 @@
     <string name="texto_btn_enviar">Enviar</string>
     <string name="texto_calendar">Fecha actual</string>
     <string name="texto_edit_calendar">Que dia es hoy</string>
+    <string name="texto_resultado">0</string>
 </resources>
