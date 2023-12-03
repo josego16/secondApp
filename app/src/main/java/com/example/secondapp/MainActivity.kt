@@ -4,21 +4,26 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.AlarmClock
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.secondapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var mainBinding: ActivityMainBinding
 
+    private lateinit var mainBinding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
-        initEvent()
 
+        initEvent()
+        peticionDatos()
+    }
+
+    private fun peticionDatos() {
         val dateSelected = intent.getStringExtra("DATE_SELECTED")
-        Toast.makeText(this, dateSelected, Toast.LENGTH_LONG).show()
+        mainBinding.idTextFechaDevuelta.text = dateSelected.toString()
+        val nameSelected = intent.getStringExtra("NAME SELECTED")
+        mainBinding.idTextNombreDevuelto.text = nameSelected.toString()
     }
 
     private fun initEvent() {

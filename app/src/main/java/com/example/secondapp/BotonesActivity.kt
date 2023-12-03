@@ -1,5 +1,6 @@
 package com.example.secondapp
 
+import android.R
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -10,7 +11,6 @@ import com.example.secondapp.databinding.ActivityBotonesBinding
 
 class BotonesActivity : AppCompatActivity() {
     private lateinit var botonesBinding: ActivityBotonesBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         botonesBinding = ActivityBotonesBinding.inflate(layoutInflater)
@@ -18,9 +18,28 @@ class BotonesActivity : AppCompatActivity() {
         initEvent()
 
         val listaTiempos = arrayOf("1seg", "2seg", "3seg", "4seg", "5seg")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listaTiempos)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val adapter = arrayAdapter(listaTiempos)
         botonesBinding.idSpinnerTiempo.adapter = adapter
+    }
+
+    private fun arrayAdapter(listaTiempos: Array<String>): ArrayAdapter<String> {
+        val adapter = ArrayAdapter(this, R.layout.simple_spinner_item, listaTiempos)
+        adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
+        return adapter
+    }
+
+    private fun initEvent() {
+        botonesBinding.idBotonSiguiente.setOnClickListener {
+            val dateSelected = botonesBinding.idEditCalendar.text.toString()
+            val nameSelected = botonesBinding.idEditNombre.text.toString()
+
+            val intent = Intent(this, MainActivity::class.java).apply {
+                putExtra("DATE_SELECTED", dateSelected)
+                putExtra("NAME SELECTED", nameSelected)
+            }
+            startActivity(intent)
+        }
+        botonesBinding.idEditCalendar.setOnClickListener { showDatePickerDialog() }
         botonesBinding.idSpinnerTiempo.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
@@ -29,22 +48,9 @@ class BotonesActivity : AppCompatActivity() {
                     position: Int,
                     id: Long) {
                 }
-
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                 }
             }
-        botonesBinding.idEditCalendar.setOnClickListener { showDatePickerDialog() }
-    }
-
-    private fun initEvent() {
-        botonesBinding.idBotonSiguiente.setOnClickListener {
-            val dateSelected = botonesBinding.idEditCalendar.text.toString()
-
-            val intent = Intent(this, MainActivity::class.java).apply {
-                putExtra("DATE_SELECTED", dateSelected)
-            }
-            startActivity(intent)
-        }
     }
 
     private fun showDatePickerDialog() {
@@ -53,7 +59,7 @@ class BotonesActivity : AppCompatActivity() {
     }
 
     private fun onDateSelected(day: Int, month: Int, year: Int) {
-        val dateSelected = "Has seleccionado el $day del $month del año $year"
+        val dateSelected = "$day del $month del año $year"
         botonesBinding.idEditCalendar.setText(dateSelected)
     }
 }

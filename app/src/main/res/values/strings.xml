@@ -22,4 +22,10 @@
     <string name="description_cubo">cubo dados</string>
     <string name="description_dados">dados</string>
     <string name="description_resultado">carta de la baraja</string>
+    <string name="texto_btn_chiste">Escuchar un chiste</string>
+    <string name="chiste">¿Cuál es el último animal que subió al arca de Noé? El del-fin.</string>
+    <string name="text_btn_volver">Volver</string>
+    <string name="description_botones">botones</string>
+    <string name="description_imagen">imagen</string>
+    <string name="describe">Estamos en pantalla principal, pulse un boton para acceder a su contenido</string>
 </resources>

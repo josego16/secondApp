@@ -21,9 +21,8 @@ class DadosActivity : AppCompatActivity() {
     }
 
     private fun initEvent() {
-        bindingDados.idTextResultado.visibility = View.INVISIBLE
+        bindingDados.idTextResultado.visibility = View.VISIBLE
         bindingDados.idBtnCubo.setOnClickListener {
-            bindingDados.idTextResultado.visibility = View.VISIBLE
             iniciarJuego()
         }
     }
@@ -52,7 +51,7 @@ class DadosActivity : AppCompatActivity() {
     }
 
     private fun lanzarDados() {
-        val numDados = Array(3) { Random.nextInt(1, 6) }
+        val numDados = Array(3) { Random.nextInt(1, 7) }
         val imgDados: Array<ImageView> = arrayOf(
             bindingDados.idImgCara1,
             bindingDados.idImgCara2,
@@ -97,7 +96,7 @@ class DadosActivity : AppCompatActivity() {
             12 -> R.drawable.card_12
             13 -> R.drawable.card_13
             else -> {
-                if (suma > 9 && suma % 10 == 1) {
+                if (suma > 9 && suma % 10 == 0) {
                     R.drawable.card_1
                 } else {
                     return
@@ -106,6 +105,6 @@ class DadosActivity : AppCompatActivity() {
         }
         bindingDados.idTextResultado.text = suma.toString()
         bindingDados.idImgResultado.setImageResource(imgBaraja)
-        println(suma)
+        print(suma)
     }
 }
