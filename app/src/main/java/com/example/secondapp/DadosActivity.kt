@@ -12,9 +12,11 @@ import kotlin.random.Random
 class DadosActivity : AppCompatActivity() {
     private lateinit var bindingDados: ActivityDadosBinding
     private var suma: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bindingDados = ActivityDadosBinding.inflate(layoutInflater)
+        setContentView(bindingDados.root)
         initEvent()
     }
 
@@ -63,14 +65,15 @@ class DadosActivity : AppCompatActivity() {
     }
 
     private fun seleccionadorCaras(imageView: ImageView, num: Int) {
-        when (num) {
-            1 -> imageView.setImageResource(R.drawable.dice_1)
-            2 -> imageView.setImageResource(R.drawable.dice_2)
-            3 -> imageView.setImageResource(R.drawable.dice_3)
-            4 -> imageView.setImageResource(R.drawable.dice_4)
-            5 -> imageView.setImageResource(R.drawable.dice_5)
-            6 -> imageView.setImageResource(R.drawable.dice_6)
+        val drawableResource = when (num) {
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
         }
+        imageView.setImageResource(drawableResource)
     }
 
     private fun resultadoFinal() {

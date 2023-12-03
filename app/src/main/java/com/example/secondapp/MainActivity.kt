@@ -10,11 +10,11 @@ import com.example.secondapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mainBinding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
-        /*setContentView(R.layout.activity_main)*/
         initEvent()
 
         val dateSelected = intent.getStringExtra("DATE_SELECTED")
@@ -23,32 +23,30 @@ class MainActivity : AppCompatActivity() {
 
     private fun initEvent() {
         mainBinding.idBtnCall.setOnClickListener {
-            val intentcall = Intent(this, LlamadaActivity::class.java)
-            startActivity(intentcall)
+            val intentCall = Intent(this, LlamadaActivity::class.java)
+            startActivity(intentCall)
         }
+
         mainBinding.idBtnAlarm.setOnClickListener {
             createAlarm("Alarma", 21, 21)
         }
-        mainBinding.idBtnEmail.setOnClickListener {
-            crearWebsite()
+
+        mainBinding.idBtnWebsite.setOnClickListener {
+            createWebsite()
         }
         mainBinding.idBtnEmail.setOnClickListener {
             crearCorreo()
         }
+
         mainBinding.idBtnDados.setOnClickListener {
             val intentDados = Intent(this, DadosActivity::class.java)
             startActivity(intentDados)
         }
+
         mainBinding.idBtnChistes.setOnClickListener {
             val intentChistes = Intent(this, ChistesActivity::class.java)
             startActivity(intentChistes)
         }
-    }
-
-    private fun crearWebsite() {
-        val url = "https://developer.android.com/kotlin?hl=es-419"
-        val urlIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        startActivity(urlIntent)
     }
 
     private fun crearCorreo() {
@@ -58,6 +56,12 @@ class MainActivity : AppCompatActivity() {
             putExtra(Intent.EXTRA_SUBJECT, "")
         }
         startActivity(intentCorreo)
+    }
+
+    private fun createWebsite() {
+        val url = "https://developer.android.com/kotlin?hl=es-419"
+        val urlIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(urlIntent)
     }
 
     private fun createAlarm(message: String, hour: Int, minutes: Int) {
