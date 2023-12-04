@@ -28,16 +28,28 @@ class BotonesActivity : AppCompatActivity() {
         return adapter
     }
 
+    private fun validarDatos(datos: String): Boolean {
+        val regex = Regex("^[a-zA-Z][0-9a-zA-z]+$")
+        return datos.matches(regex)
+    }
+
     private fun initEvent() {
         botonesBinding.idBotonSiguiente.setOnClickListener {
             val dateSelected = botonesBinding.idEditCalendar.text.toString()
             val nameSelected = botonesBinding.idEditNombre.text.toString()
+            val tiradasSelected = obtenerTiradas()
+            val segundosSelected = obtenerSegundos()
 
-            val intent = Intent(this, MainActivity::class.java).apply {
-                putExtra("DATE_SELECTED", dateSelected)
-                putExtra("NAME SELECTED", nameSelected)
+            if (validarDatos(nameSelected)) {
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("DATE_SELECTED", dateSelected)
+                intent.putExtra("NAME_SELECTED", nameSelected)
+                intent.putExtra("TIRADAS_SELECTED", tiradasSelected)
+                intent.putExtra("SEGUNDOS_SELECTED", segundosSelected)
+                startActivity(intent)
+            } else {
+                botonesBinding.idBotonSiguiente.error = "Nombre incorrecto"
             }
-            startActivity(intent)
         }
         botonesBinding.idEditCalendar.setOnClickListener { showDatePickerDialog() }
         botonesBinding.idSpinnerTiempo.onItemSelectedListener =
@@ -46,11 +58,29 @@ class BotonesActivity : AppCompatActivity() {
                     parent: AdapterView<*>?,
                     view: View?,
                     position: Int,
-                    id: Long) {
+                    id: Long
+                ) {
                 }
+
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                 }
             }
+    }
+
+    private fun obtenerTiradas(): Int {
+        return when (botonesBinding.idGroupTiradas.checkedRadioButtonId) {
+            botonesBinding.idRadio1.id -> 1
+            botonesBinding.idRadio2.id -> 2
+            botonesBinding.idRadio3.id -> 3
+            botonesBinding.idRadio4.id -> 4
+            botonesBinding.idRadio5.id -> 5
+            else -> 0
+        }
+    }
+
+    private fun obtenerSegundos(): Int {
+        val tiempoSeleccionado = botonesBinding.idSpinnerTiempo.selectedItem.toString()
+        return tiempoSeleccionado.substringBefore("seg").toInt()
     }
 
     private fun showDatePickerDialog() {

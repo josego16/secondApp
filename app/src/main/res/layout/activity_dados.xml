@@ -63,7 +63,7 @@
         android:id="@+id/id_layout_resultado"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="16dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,18 +75,19 @@
             android:id="@+id/id_text_resultado"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="@string/texto_resultado"
             android:textColor="@color/white"
-            android:textSize="50sp"
+            android:textSize="40sp"
             android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/id_img_resultado"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_margin="16dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
             android:contentDescription="@string/description_resultado" />
     </LinearLayout>

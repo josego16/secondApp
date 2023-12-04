@@ -18,6 +18,12 @@ class DadosActivity : AppCompatActivity() {
         bindingDados = ActivityDadosBinding.inflate(layoutInflater)
         setContentView(bindingDados.root)
         initEvent()
+        infoTiradas()
+    }
+
+    private fun infoTiradas() {
+        val tiradasSelected = intent.getStringExtra("TIRADAS_SELECTED").toString()
+        val segundosSelected = intent.getStringExtra("SEGUNDOS_SELECTED").toString()
     }
 
     private fun initEvent() {
@@ -45,7 +51,7 @@ class DadosActivity : AppCompatActivity() {
         planificador.schedule(
             {
                 resultadoFinal()
-            }, milisegundos * 7.toLong(), TimeUnit.MILLISECONDS
+            }, milisegundos * 6.toLong(), TimeUnit.MILLISECONDS
         )
         planificador.shutdown()
     }
@@ -58,7 +64,7 @@ class DadosActivity : AppCompatActivity() {
             bindingDados.idImgCara3
         )
         suma = numDados.sum()
-        for (i in 0..3) {
+        for (i in 0..2) {
             seleccionadorCaras(imgDados[i], numDados[i])
         }
     }
@@ -70,14 +76,7 @@ class DadosActivity : AppCompatActivity() {
             3 -> R.drawable.dice_3
             4 -> R.drawable.dice_4
             5 -> R.drawable.dice_5
-            6 -> R.drawable.dice_6
-            else -> {
-                if (suma > 9 && suma % 10 == 1) {
-                    R.id.id_text_resultado
-                } else {
-                    return
-                }
-            }
+            else -> R.drawable.dice_6
         }
         imageView.setImageResource(drawableResource)
     }
@@ -94,17 +93,12 @@ class DadosActivity : AppCompatActivity() {
             10 -> R.drawable.card_10
             11 -> R.drawable.card_11
             12 -> R.drawable.card_12
-            13 -> R.drawable.card_13
-            else -> {
-                if (suma > 9 && suma % 10 == 0) {
-                    R.drawable.card_1
-                } else {
-                    return
-                }
-            }
+            else -> R.drawable.card_13
         }
-        bindingDados.idTextResultado.text = suma.toString()
-        bindingDados.idImgResultado.setImageResource(imgBaraja)
+        runOnUiThread {
+            bindingDados.idTextResultado.text = suma.toString()
+            bindingDados.idImgResultado.setImageResource(imgBaraja)
+        }
         print(suma)
     }
 }

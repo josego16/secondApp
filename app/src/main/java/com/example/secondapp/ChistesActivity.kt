@@ -1,8 +1,8 @@
 package com.example.secondapp
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.speech.tts.TextToSpeech
 import androidx.appcompat.app.AppCompatActivity
 import com.example.secondapp.databinding.ActivityChistesBinding
@@ -14,13 +14,14 @@ class ChistesActivity : AppCompatActivity() {
     private lateinit var textToSpeech: TextToSpeech
     private var touchMaxTime = 500
     private var touchLastTime: Long = 0
-    private lateinit var handler: Handler
+    private lateinit var context: Context
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         chistesBinding = ActivityChistesBinding.inflate(layoutInflater)
         setContentView(chistesBinding.root)
         configureTextSpech()
         initEvent()
+        recibirDatos()
     }
 
     private fun configureTextSpech() {
@@ -47,6 +48,13 @@ class ChistesActivity : AppCompatActivity() {
             val intentVolver = Intent(this, MainActivity::class.java)
             startActivity(intentVolver)
         }
+    }
+
+    private fun recibirDatos() {
+        val dateReceived = intent.getStringExtra("DATE_SELECTED")
+        chistesBinding.idTextDateDevuelta.text = dateReceived.toString()
+        val nameReceived = intent.getStringExtra("NAME_SELECTED")
+        chistesBinding.idTextNameDevuelto.text = nameReceived.toString()
     }
 
     override fun onDestroy() {
